@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Personal Gaming App</title>
+<style>
+body {
+  background: #101827;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 30px 10px;
+}
+.box {
+  max-width: 350px;
+  margin: 70px auto;
+  padding: 25px;
+  background: #24344d;
+  border-radius: 15px;
+}
+input {
+  width: 90%;
+  padding: 13px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+button {
+  padding: 13px 25px;
+  background: #00e6a0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+#gamePage { display: none; }
+</style>
+</head>
+<body>
+
+<div class="box" id="loginPage">
+  <h1>🔐 Personal Login</h1>
+  <p>Welcome to My Gaming App</p>
+
+  <input id="phone" placeholder="Enter mobile number">
+  <input id="password" type="password"
+  placeholder="Enter password">
+
+  <button onclick="login()">LOGIN</button>
+  <p id="error"></p>
+</div>
+
+<div id="gamePage">
+  <h1>🎮 Welcome!</h1>
+  <h2>My Personal Gaming App</h2>
+  <p>You are logged in successfully.</p>
+  <button onclick="logout()">LOGOUT</button>
+</div>
+
+<script>
+// Demo only: do not use real credentials here.
+const MY_NUMBER = "9811745070";
+const MY_PASSWORD = "@Nikki@143";
+
+function login() {
+  let phone = document.getElementById("phone").value;
+  let password = document.getElementById("password").value;
+
+  if(phone === MY_NUMBER && password === MY_PASSWORD) {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("gamePage").style.display = "block";
+  } else {
+    document.getElementById("error").innerText =
+      "Wrong number or password!";
+  }
+}
+
+function logout() {
+  document.getElementById("gamePage").style.display = "none";
+  document.getElementById("loginPage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
